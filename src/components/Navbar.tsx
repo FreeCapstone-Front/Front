@@ -1,6 +1,7 @@
 import logoImage from "../assets/logo/logoDark.png";
 import pencil from "../assets/icons/pencil.png";
 import loginIcon from "../assets/icons/loginIcon.png";
+import mypageIcon from "../assets/icons/myPageIcon.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -16,6 +17,14 @@ const Navbar = () => {
     "flex items-center justify-center " +
     hovercss +
     "hover:bg-white/20";
+
+  const btncss2 =
+    "text-white bg-white/10 w-[9rem] h-[3.125rem] rounded-3xl border border-white/30 " +
+    "flex items-center justify-center " +
+    hovercss +
+    "hover:bg-white/20";
+
+  const AccessToken = false; //더미 데이터
 
   return (
     <nav className={`w-full h-37.5 ${bgBlack} text-white`}>
@@ -39,16 +48,26 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* ⭐️ 수정된 부분 2: 회원가입 버튼에도 flex 중앙 정렬 클래스를 추가했습니다. */}
-        <Link
-          to="/auth-page"
-          className="bg-gradient-to-r from-[#F6339A] to-[#9810FA] w-48.75 h-15 rounded-full text-white font-bold 
+        {AccessToken && (
+          <Link
+            to="/auth-page"
+            className="bg-gradient-to-r from-[#F6339A] to-[#9810FA] w-48.75 h-15 rounded-full text-white font-bold 
           flex items-center justify-center gap-2
           transform transition-all duration-300 ease-in-out 
           hover:scale-105 hover:shadow-lg hover:shadow-[#F6339A]/40"
-        >
-          <img src={loginIcon} /> 회원가입/로그인
-        </Link>
+          >
+            <img src={loginIcon} /> 회원가입/로그인
+          </Link>
+        )}
+        {!AccessToken && (
+          <div className="h-full flex items-center justify-center gap-x-8">
+            <div className="bg-gradient-to-r from-[#F6339A] to-[#9810FA] h-[60px] w-[60px] rounded-full"></div>
+            <Link to="/calendar-page" className={`${btncss2} gap-x-2`}>
+              <img src={mypageIcon} className="w-6 h-6" />
+              마이페이지
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
