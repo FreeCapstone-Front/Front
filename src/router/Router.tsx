@@ -6,7 +6,7 @@ import { AnalysisPage } from "../pages/AnalysisPage";
 import { CalendarPage } from "../pages/CalendarPage";
 import { CommunityPage } from "../pages/CommunityPage";
 import { RecordPage } from "../pages/RecordPage";
-
+import { IntroductionPage } from "../pages/IntroductionPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "record-page",
         element: <RecordPage />,
+      },
+      {
+        path: "intro",
+        element: <IntroductionPage />,
       },
       // 나중에 "/about" 페이지를 추가하고 싶다면 여기에 추가하면 됨,, 상욱아
       // {
