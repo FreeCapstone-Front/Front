@@ -1,4 +1,16 @@
 @import "tailwindcss";
+/* global.css 또는 index.css 파일에 추가 */
+
+.text-gradient-purple-pink {
+    /* 텍스트에 적용될 그라데이션 */
+    background: linear-gradient(to right, #AD46FF, #F6339A);
+    /* 배경을 텍스트 모양으로 자름 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* 텍스트 채우기 색상을 투명하게 만들어 아래 배경이 보이게 함 */
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
 
 /* ---------------------------------------------------- */
 /* --- react-datepicker 캘린더 CSS--- */
