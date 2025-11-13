@@ -1,0 +1,9 @@
+# 모든 파일에 LF 적용
+* text=auto eol=lf
+
+# 특정 파일만 LF로 적용 (예: pnpm-lock.yaml)
+pnpm-lock.yaml text eol=lf
+
+# 특정 확장자에만 적용 (예: *.sh, *.yml 등)
+*.sh text eol=lf
+*.yml text eol=lf
