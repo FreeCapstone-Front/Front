@@ -5,7 +5,7 @@ import DreamModal from "./DreamModal";
 import logoImage from "../assets/icons/DreamCalendarPage.png";
 import happy from "../assets/icons/happy.png";
 import sad from "../assets/icons/sad.png";
-import Ordinary from "../assets/icons/Ordinary.png";
+import calm from "../assets/icons/calm.png";
 import excited from "../assets/icons/excited.png";
 import uneasy from "../assets/icons/uneasy.png";
 import peaceful from "../assets/icons/peaceful.png";
@@ -160,7 +160,7 @@ export const CalendarPage = () => {
             },
             { src: sad, alt: "슬픈", label: "슬픈", color: "text-blue-400" },
             {
-              src: Ordinary,
+              src: calm,
               alt: "평범한",
               label: "평범한",
               color: "text-gray-400",
