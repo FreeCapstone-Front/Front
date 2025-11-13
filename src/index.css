@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+/* ---------------------------------------------------- */
+/* --- react-datepicker 캘린더 CSS--- */
+/* ---------------------------------------------------- */
+
+/* 1. 캘린더 컨테이너 전체 스타일 */
+.react-datepicker-popper .react-datepicker {
+  background-color: #1a1625 !important;
+  border: 2px solid #f6339a !important;
+  border-radius: 1.5rem !important;
+  color: #fff !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  font-family: inherit;
+  padding: 1rem;
+  width: auto;
+}
+
+/* 2. 헤더 (월/년도 이름 영역) 및 모든 텍스트 색상 */
+.react-datepicker__header {
+  background-color: transparent !important;
+  border-bottom: 2px solid #f6339a !important;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.react-datepicker-popper .react-datepicker * {
+  color: #fff !important;
+}
+
+/* 3. 날짜 셀 (크기 및 기본 스타일) */
+.react-datepicker__day,
+.react-datepicker__day-name {
+  width: 3.2rem;
+  line-height: 3.2rem;
+  margin: 0.2rem;
+  border-radius: 0.75rem !important;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 4. 선택된 날짜 셀 스타일 (그라디언트 배경) */
+.react-datepicker__day--selected {
+  background: linear-gradient(135deg, #f6339a, #c700ff) !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* 5. 호버 스타일 */
+.react-datepicker__day:hover:not(.react-datepicker__day--selected) {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+}
+
+/* 6. 다른 달 날짜 */
+.react-datepicker__day--outside-month {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 7. 이전/다음 버튼 (화살표) 색상 */
+.react-datepicker__navigation-icon::before {
+  border-color: #fff !important;
+}

@@ -1,0 +1,64 @@
+/* ---------------------------------------------------- */
+/* --- react-datepicker 캘린더 팝업 스타일 오버라이드 --- */
+/* ---------------------------------------------------- */
+
+/* 1. 캘린더 컨테이너 전체 스타일 (배경색, 테두리, 그림자) */
+.react-datepicker-popper .react-datepicker {
+  background-color: #1a1625; /* 어두운 배경색 */
+  border: 1px solid #f6339a; /* 핑크색 테두리 */
+  border-radius: 1rem; /* 둥근 모서리 */
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  font-family: inherit;
+}
+
+/* 2. 헤더 (월 이름, 년도) 및 요일 이름 스타일 */
+.react-datepicker__header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 0;
+}
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 3. 날짜 셀 (기본 스타일) */
+.react-datepicker__day,
+.react-datepicker__day-name {
+  width: 2.2rem; /* 셀 너비 조정 */
+  line-height: 2.2rem; /* 셀 높이 조정 */
+  margin: 0.166rem;
+  border-radius: 0.5rem;
+}
+
+/* 4. 선택된 날짜 셀 스타일 (핵심: 보라색/핑크색 배경) */
+.react-datepicker__day--selected {
+  /* 이미지와 유사한 보라색/핑크색 그라디언트 또는 단색 */
+  background: #c700ff !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* 5. 호버 스타일 (선택되지 않은 날짜) */
+.react-datepicker__day:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* 6. 오늘 날짜 */
+.react-datepicker__day--today {
+  border: 1px solid #f6339a; /* 오늘 날짜에 테두리 */
+  background-color: rgba(246, 51, 154, 0.1); /* 연한 핑크색 배경 */
+}
+
+/* 7. 다른 달 날짜 (흐리게) */
+.react-datepicker__day--outside-month {
+  color: #6c757d;
+}
+
+/* 8. 이전/다음 버튼 (화살표) 색상 */
+.react-datepicker__navigation-icon::before {
+  border-color: #fff;
+}
