@@ -8,6 +8,8 @@ import { CommunityPage } from "../pages/CommunityPage";
 import { RecordPage } from "../pages/RecordPage";
 import { SurveyResultPage } from "../pages/SurveyResultPage";
 import { SurveyPage } from "../pages/SurveyPage";
+import ArticleListPage from "../pages/ArticleListPage";
+import { SleepRoom } from "../pages/SleepRoom";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,15 @@ export const router = createBrowserRouter([
         path: "survey-page",
         element: <SurveyPage />,
       },
+      {
+        path: "articleList-page",
+        element: <ArticleListPage />,
+      },
+      {
+        path: "sleepRoom-page",
+        element: <SleepRoom />,
+      },
+
       // 나중에 "/about" 페이지를 추가하고 싶다면 여기에 추가하면 됨,, 상욱아
       // {
       //   path: "about", 이게 페이지 주소
