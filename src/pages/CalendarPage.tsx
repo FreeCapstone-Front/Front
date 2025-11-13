@@ -1,6 +1,7 @@
 import Calendar from "react-calendar";
 import type { CalendarProps } from "react-calendar";
 import { useState } from "react";
+import DreamModal from "./DreamModal";
 import logoImage from "../assets/icons/DreamCalendarPage.png";
 import happy from "../assets/icons/happy.png";
 import sad from "../assets/icons/sad.png";
@@ -45,10 +46,28 @@ export const CalendarPage = () => {
     new Date()
   );
 
+  // 모달 상태 관리
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+  const dreamDataMap: {
+    [date: string]: { title: string; description: string; tags: string[] };
+  } = {
+    "2025-10-14": {
+      title: "친구들과 여행하는 꿈",
+      description:
+        "오랜만에 만난 친구들과 여행을 떠났어요. 모두 웃으며 즐거운 시간을 보냈습니다.",
+      tags: ["친구", "여행", "추억"],
+    },
+    // ... 다른 날짜 데이터
+  };
+
   const handleChange: CalendarProps["onChange"] = (newValue) => {
     // 단일 선택만 한다면,
     if (newValue instanceof Date) {
       setValue(newValue);
+      setSelectedDate(newValue);
+      setModalOpen(true);
     }
     // (범위 지원이면 Array.isArray(newValue)도 추가)
   };
@@ -118,6 +137,17 @@ export const CalendarPage = () => {
         <span className="mt-4 text-pink-400 text-lg">
           {value.toLocaleDateString("ko-KR")}
         </span>
+
+        <DreamModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          date={selectedDate}
+          dreamData={
+            selectedDate
+              ? dreamDataMap[selectedDate.toISOString().slice(0, 10)]
+              : undefined
+          }
+        />
 
         {/* 하단 분류 예시, flex로 자연스럽게 배치 */}
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-x-6 gap-y-3 mt-4 justify-items-center w-full max-w-10xl mx-auto">
