@@ -6,9 +6,11 @@ import { AnalysisPage } from "../pages/AnalysisPage";
 import { CalendarPage } from "../pages/CalendarPage";
 import { CommunityPage } from "../pages/CommunityPage";
 import { RecordPage } from "../pages/RecordPage";
+import { SurveyResultPage } from "../pages/SurveyResultPage";
+import { SurveyPage } from "../pages/SurveyPage";
 import { IntroductionPage } from "../pages/IntroductionPage";
-import { SleepRoom } from "../pages/SleepRoom";
 import ArticleListPage from "../pages/ArticleListPage";
+import { SleepRoom } from "../pages/SleepRoom";
 import { Article1Page } from "../pages/Article1Page";
 import { AuthLayout } from "../layout/AuthLayout";
 import SignupPage from "../pages/SignupPage";
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
       {
         path: "record-page",
         element: <RecordPage />,
+      },
+      {
+        path: "result-page",
+        element: <SurveyResultPage />,
+      },
+      {
+        path: "survey-page",
+        element: <SurveyPage />,
       },
       {
         path: "intro",
