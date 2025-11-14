@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import star from "../assets/icons/star.png";
-import { pages } from "./SurveyPage";
+import { pages } from "../data/survey";
 import { useNavigate } from "react-router-dom";
 
 export const SurveyResultPage = () => {
