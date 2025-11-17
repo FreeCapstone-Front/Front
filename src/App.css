@@ -33,10 +33,11 @@
 }
 .custom-calendar .react-calendar__tile {
   display: flex;
-  align-items: flex-start; /* 상단에 붙임 */
-  justify-content: flex-start; /* 왼쪽에 붙임 */
-  min-height: 34px; /* 필요시 타일 높이 */
-  padding: 6px 8px; /* 날짜와 내용 여유 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  flex-direction: column; /* 내용 세로 배치 */
+  min-height: 8rem !important; /* 충분히 큰 높이 지정 */
+  padding: 10px 8px; /* 여유 padding */
 }
 .custom-calendar .react-calendar__month-view__tile {
   margin: 0; /* gap만 사용, margin은 0! */
@@ -62,6 +63,7 @@
   color: #aaa; /* 필요시 버튼 색도 변경 */
   background: transparent;
 }
+
 /* ---------------------------------------------------- */
 /* --- react-datepicker 캘린더 팝업 스타일 오버라이드 --- */
 /* ---------------------------------------------------- */

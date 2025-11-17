@@ -43,8 +43,8 @@ const Navbar = () => {
     "flex items-center justify-center cursor-pointer shadow-md shadow-red-500/50 transition-colors";
 
   return (
-    <nav className={`w-full h-37.5 ${bgBlack} text-white`}>
-      <div className={`h-full flex justify-between items-center px-20`}>
+    <nav className={`w-full h-30.5 ${bgBlack} text-white`}>
+      <div className={`h-full flex justify-between items-center px-10`}>
         <Link to="/">
           <img
             src={logoImage}
