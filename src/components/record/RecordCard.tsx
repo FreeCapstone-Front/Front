@@ -24,6 +24,7 @@ import type { DreamFormData } from "../../types/dream";
 import { hovercss } from "../Navbar";
 import { saveDreamRecord } from "../../apis/dreamApi";
 import LoadingModal from "../LoadingModal";
+import { useNavigate } from "react-router-dom";
 
 const saveBtnCss =
   "mt-6 p-4 rounded-xl w-80 h-17 text-white font-bold text-lg flex items-center justify-center gap-x-4";
@@ -42,7 +43,7 @@ const moodOptions = [
 
 const RecordCard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false); // 로딩 상태
-
+  const navigate = useNavigate();
   const { register, handleSubmit, control, reset, getValues } =
     useForm<DreamFormData>({
       defaultValues: {
@@ -74,6 +75,7 @@ const RecordCard: React.FC = () => {
       alert("꿈 기록이 성공적으로 저장되었습니다.");
       console.log(result);
       reset();
+      navigate(`/calendar-page`);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error("꿈 기록 저장 실패", error.message);

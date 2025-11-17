@@ -22,3 +22,11 @@ export interface DreamRecordResponse {
   keywords: string[];
   recommendation: string;
 }
+
+export type DreamCalendarItem = {
+  date: string; // "2025-11-15" 형태
+  mood: string | null;
+  topKeywords: string[];
+  title?: string; // 꿈 제목 (선택)
+  dreamId?: number; // 꿈 고유 ID (선택)
+};
