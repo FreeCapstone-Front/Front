@@ -61,7 +61,7 @@ const Navbar = () => {
         {!AccessToken && (
           <div className="h-full flex items-center justify-center gap-x-8">
             <div className="bg-linear-to-r from-[#F6339A] to-[#9810FA] h-[60px] w-[60px] rounded-full"></div>
-            <Link to="/calendar-page" className={`${btncss2} gap-x-2`}>
+            <Link to="/my-page" className={`${btncss2} gap-x-2`}>
               <img src={mypageIcon} className="w-6 h-6" />
               마이페이지
             </Link>

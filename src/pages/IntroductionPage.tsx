@@ -49,9 +49,7 @@ export const IntroductionPage = () => {
                    left-1/20 top-[500px] transform -translate-y-1/2 
                    border-none
                    **-translate-x-[calc(100%+10px)]** /* 20px
-                    bg-[#AD46FF33] backdrop-blur-xl
-                    bg-gradient-to-br from-[#F6339A]/10 to-[#601A40]/10
-                    opacity-30 backdrop-blur-xl [box-shadow:0_0_300px_200px_rgba(246,51,154,0.4)]"
+                   bg-[#9810fa]/20 blur-3xl "
         >
         </div>
         <div
@@ -60,9 +58,7 @@ export const IntroductionPage = () => {
                    right-1/20 top-[460px] transform -translate-y-1/2 
                    
                    **-translate-x-[calc(100%+10px)]** /* 20px
-                    bg-[#F6339A33] backdrop-blur-xl
-                    bg-gradient-to-br from-[#AD46FF]/10 to-[#2E0F5B]/10
-                    opacity-30 backdrop-blur-xl [box-shadow:0_0_300px_200px_rgba(246,51,154,0.4)]"
+                   bg-[#f6339a]/10 blur-3xl "
         >
         </div>
         <div className="z-10 -translate-y-20 relative text-white text-center">
@@ -112,7 +108,7 @@ export const IntroductionPage = () => {
         </div>
       </div>
       </div>
-      <div className ={`${textset} mt-25`}>
+      <div className ={`${textset}`}>
         <div className={`${bgCircle} px-6 py-2`}>
             <img src = {BinStar} ></img>
             핵심 기능  
