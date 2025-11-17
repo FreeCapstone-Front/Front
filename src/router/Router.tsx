@@ -6,11 +6,15 @@ import { AnalysisPage } from "../pages/AnalysisPage";
 import { CalendarPage } from "../pages/CalendarPage";
 import { CommunityPage } from "../pages/CommunityPage";
 import { RecordPage } from "../pages/RecordPage";
+import { SurveyResultPage } from "../pages/SurveyResultPage";
+import { SurveyPage } from "../pages/SurveyPage";
 import { IntroductionPage } from "../pages/IntroductionPage";
-import { SleepRoom } from "../pages/SleepRoom";
 import ArticleListPage from "../pages/ArticleListPage";
+import { SleepRoom } from "../pages/SleepRoom";
 import { Article1Page } from "../pages/Article1Page";
 import {MyPage} from "../pages/MyPage";
+import { AuthLayout } from "../layout/AuthLayout";
+import SignupPage from "../pages/SignupPage";
 
 export const router = createBrowserRouter([
   {
@@ -21,10 +25,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
-      {
-        path: "/auth-page",
-        element: <AuthPage />,
-      },
+
       {
         path: "analysis-page",
         element: <AnalysisPage />,
@@ -42,15 +43,19 @@ export const router = createBrowserRouter([
         element: <RecordPage />,
       },
       {
+        path: "result-page",
+        element: <SurveyResultPage />,
+      },
+      {
+        path: "survey-page",
+        element: <SurveyPage />,
+      },
+      {
         path: "intro",
         element: <IntroductionPage />,
       },
-      { path: "articleList-page",
-        element: <ArticleListPage />,
-      },
-      { path: "article1-page",
-        element: <Article1Page/>,
-      },
+      { path: "articleList-page", element: <ArticleListPage /> },
+      { path: "article1-page", element: <Article1Page /> },
       {
         path: "sleepRoom-page",
         element: <SleepRoom />,
@@ -65,6 +70,19 @@ export const router = createBrowserRouter([
       //   path: "about", 이게 페이지 주소
       //   element: <AboutPage /> 이게 컴포넌트
       // }
+    ],
+  },
+  {
+    element: <AuthLayout />, // Navbar 제외
+    children: [
+      {
+        path: "/auth-page", // 상위 path 없이 절대경로로 설정하거나 path를 설정합니다.
+        element: <AuthPage />,
+      },
+      {
+        path: "/signup-page", // 상위 path 없이 절대경로로 설정합니다.
+        element: <SignupPage />,
+      },
     ],
   },
 ]);

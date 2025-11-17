@@ -9,6 +9,7 @@ import up from "../../../assets/icons/up1.png";
 import bed from "../../../assets/icons/bed.png";
 import rightbtn from "../../../assets/icons/introBtn2.png";
 import { pinkGrhoverCss } from "../../Navbar";
+import { useNavigate } from "react-router-dom";
 
 const sleepQuestions = [
   {
@@ -34,6 +35,11 @@ const sleepQuestions = [
 ];
 
 const SleepSelfCheck = () => {
+  const navigate = useNavigate();
+  const handleRetry = () => {
+    navigate("/survey-page");
+  };
+
   return (
     <div
       className={`${homeCompoBgBlack} px-10 w-287.5 h-205 flex flex-col items-center justify-center gap-y-5 p-5`}
@@ -69,6 +75,7 @@ const SleepSelfCheck = () => {
         </div>
       </div>
       <div
+        onClick={handleRetry}
         className={`w-120 h-20 text-white text-xl bg-linear-to-r from-[#AD46FF] to-[#F6339A] rounded-2xl px-[1.25rem] flex items-center justify-center gap-x-4 ${pinkGrhoverCss}`}
       >
         <img src={bed} className="h-6 w-6"></img>
