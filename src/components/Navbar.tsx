@@ -22,6 +22,7 @@ const Navbar = () => {
   const token = useAuthStore((state) => state.token);
   const isAuthenticated = !!token;
   const logout = useAuthStore((state) => state.logout);
+  const nickname = useAuthStore((state) => state.nickname);
 
   const bgBlack =
     "bg-gradient-to-b from-[#1A1625] via-[#1E1B4B] to-[#2D1B4E] border-b-2 border-[#F6339A]/30";
@@ -79,7 +80,7 @@ const Navbar = () => {
 
         {isAuthenticated && (
           <div className="h-full flex items-center justify-center gap-x-4">
-            <div className="bg-linear-to-r from-[#F6339A] to-[#9810FA] h-[60px] w-[60px] rounded-full" />
+            {nickname}님 반갑습니다.
             <Link to="/mypage" className={`${btncss2} gap-x-2`}>
               <img src={mypageIcon} alt="mypage icon" className="w-6 h-6" />
               마이페이지
