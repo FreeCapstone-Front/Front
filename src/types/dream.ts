@@ -28,5 +28,20 @@ export type DreamCalendarItem = {
   mood: string | null;
   topKeywords: string[];
   title?: string; // 꿈 제목 (선택)
-  dreamId?: number; // 꿈 고유 ID (선택)
+  DreamId?: string; // 꿈 고유 ID (선택)
 };
+
+export interface DreamDetail {
+  id: string;
+  date: string;
+  title: string;
+  content: string;
+  mood: string;
+  tags: string[];
+  aiAnalyzed: boolean;
+  sleepMinutes: number;
+  sleepQuality: number;
+  psychologySummary: string;
+  keywords: string[];
+  recommendation: string;
+}
