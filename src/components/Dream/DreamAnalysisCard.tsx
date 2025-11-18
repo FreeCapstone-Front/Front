@@ -7,6 +7,8 @@ import { Sparkles } from "lucide-react";
 import { Lightbulb } from "lucide-react";
 import { Clock } from "lucide-react";
 import up from "../../assets/icons/up1.png";
+import heart2 from "../../assets/icons/heartNew.png";
+import bingbing from "../../assets/icons/bingbing.png";
 const bg = `bg-linear-to-br from-[#1A1625] via-[#1E1B4B] to-[#2D1B4E] flex gap-y-4 h-auto rounded-2xl p-10 mb-6 ${shadowStyle}`;
 const bgContent =
   "text-gray-200 bg-white/5 w-full min-h-30 flex items-center justify-center rounded-3xl p-6 whitespace-pre-wrap wrap-break-word";
@@ -85,7 +87,7 @@ const DreamAnalysisCard = ({ detail }: { detail: DreamDetail }) => (
         {detail.mood && (
           <section className="mb-5 bg-linear-to-br from-[#2E2B5B]/20 via-[#9810fa]/20 to-[#f6339a]/20 rounded-2xl p-5 shadow-md w-1/2">
             <h3 className="font-semibold text-2xl mb-2 flex gap-x-4 items-center">
-              <img src={up} className="h-15 w-15" />
+              <img src={heart2} className="h-15 w-15" />
               감정 분석
             </h3>
             <div className="flex items-center">
@@ -132,7 +134,7 @@ const DreamAnalysisCard = ({ detail }: { detail: DreamDetail }) => (
       {detail.recommendation && (
         <section className={`${bg} flex-col`}>
           <h3 className="font-semibold text-2xl mb-2 flex gap-x-4 items-center">
-            <img src={up} className="h-15 w-15" />
+            <img src={bingbing} className="h-15 w-15" />
             추천 행동
           </h3>
           <div className="text-gray-50 space-y-5">
