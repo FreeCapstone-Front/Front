@@ -9,7 +9,7 @@ import introBtn2 from "../../../assets/icons/introBtn2.png";
 import introBtn3 from "../../../assets/icons/introBtn3.png";
 
 import { hovercss, pinkGrLoginBtn } from "../../Navbar";
-import { pinkGrBtnWeather } from "../weather/WeatherTips";
+import { pinkGrBtnWeather } from "../weather/WeatherCard";
 import { Link } from "react-router-dom";
 export const IntroSection = () => {
   return (

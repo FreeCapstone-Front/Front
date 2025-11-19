@@ -1,6 +1,6 @@
 import { homeCompoBgBlack } from "../weather/WeatherLayout";
 import pinkIcon from "../../../assets/icons/pinkIcon.png";
-import { pinkGrBtnWeather } from "../weather/WeatherTips";
+import { pinkGrBtnWeather } from "../weather/WeatherCard";
 import sheep from "../../../assets/icons/sheep.png";
 import moon from "../../../assets/icons/moon1.png";
 import brain from "../../../assets/icons/brain.png";
