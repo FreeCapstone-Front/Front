@@ -15,6 +15,7 @@ import { Article1Page } from "../pages/Article1Page";
 import { AuthLayout } from "../layout/AuthLayout";
 import SignupPage from "../pages/SignupPage";
 import DreamDetailPage from "../pages/DreamDetailPage";
+import DreamBotPage from "../pages/DreamBotPage";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "dream/:dreamId", // [translate:꿈 상세 페이지를 위한 중첩 라우팅 경로 추가]
         element: <DreamDetailPage />,
+      },
+      {
+        path: "dreamBot", // [translate:꿈 상세 페이지를 위한 중첩 라우팅 경로 추가]
+        element: <DreamBotPage />,
       },
 
       // 나중에 "/about" 페이지를 추가하고 싶다면 여기에 추가하면 됨,, 상욱아

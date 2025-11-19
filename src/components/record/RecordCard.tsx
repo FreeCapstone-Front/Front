@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import FieldGroup from "./FieldGroup";
 import MoodSelector from "./MoodSelector";
@@ -56,6 +56,12 @@ const RecordCard: React.FC = () => {
         tags: [],
       },
     });
+  useEffect(() => {
+    const savedSummary = localStorage.getItem("chatBotSummary");
+    if (savedSummary) {
+      reset({ ...getValues(), content: savedSummary });
+    }
+  }, []);
 
   const onSubmit = async (data: DreamFormData) => {
     if (!data.date || !data.sleepAt || !data.wakeAt) {
@@ -74,6 +80,7 @@ const RecordCard: React.FC = () => {
       const result = await saveDreamRecord(data);
       alert("꿈 기록이 성공적으로 저장되었습니다.");
       console.log(result);
+      localStorage.removeItem("chatBotSummary");
       reset();
       navigate(`/calendar-page`);
     } catch (error: unknown) {
