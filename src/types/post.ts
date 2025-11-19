@@ -32,3 +32,23 @@ export interface PostDetailResponse {
   createdAt: string;
   comments: CommentResponse[];
 }
+
+export interface CommentRequest {
+  content: string;
+  parentCommentId: string | null;
+}
+export interface CommentResponse {
+  commentId: string; // 댓글의 고유 ID (UUID)
+  postId: string; // 댓글이 포함된 게시글의 ID (UUID)
+  authorId: string; // 댓글 작성자의 사용자 ID (UUID)
+  content: string; // 댓글 내용
+  createdAt: string; // 댓글 작성 시각 (ISO 8601 형식의 문자열)
+}
+
+export interface commentType {
+  id: string;
+  content: string;
+  createdAt: string;
+}
+
+export type getCommentType = commentType[];
