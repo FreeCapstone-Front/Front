@@ -9,11 +9,13 @@ import { RecordPage } from "../pages/RecordPage";
 import { SurveyResultPage } from "../pages/SurveyResultPage";
 import { SurveyPage } from "../pages/SurveyPage";
 import { IntroductionPage } from "../pages/IntroductionPage";
+import { CommunityPageDetail } from "../pages/CommunityPageDetail";
 import ArticleListPage from "../pages/ArticleListPage";
 import { SleepRoom } from "../pages/SleepRoom";
 import { Article1Page } from "../pages/Article1Page";
 import {MyPage} from "../pages/MyPage";
 import { AuthLayout } from "../layout/AuthLayout";
+import { WritePost } from "../pages/WritePost";
 import SignupPage from "../pages/SignupPage";
 
 export const router = createBrowserRouter([
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
       {
         path: "community-page",
         element: <CommunityPage />,
+      },
+      {
+        path: "communitydetail-page/:id",
+        element: <CommunityPageDetail />,
+      },
+      {
+        path: "write-page",
+        element: <WritePost />,
       },
       {
         path: "record-page",

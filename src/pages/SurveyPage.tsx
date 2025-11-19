@@ -1,5 +1,5 @@
 // SurveyPage.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { pages } from "../data/survey";
 
@@ -29,7 +29,7 @@ export const SurveyPage = () => {
   };
 
   const ProgressBar = (
-    <div className="fixed top-0 left-0 w-full z-50 bg-[#231B33] px-6 py-4">
+    <div className="sticky top-0 z-50 bg-[#231B33] px-6 py-4">
       <div className="flex justify-between items-center mb-2">
         <span className="text-gray-200 text-lg">
           질문 {selected.filter((sel) => sel !== null).length} / {pages.length}
@@ -45,10 +45,14 @@ export const SurveyPage = () => {
     </div>
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       {ProgressBar}
-      <div className={`w-full min-h-screen ${bgBlack} py-12`}>
+      <div className={`w-full min-h-screen ${bgBlack} py-12 `}>
         <div className="flex flex-col gap-8 max-w-5xl mx-auto py-12">
           {pages.map((page, idx) => (
             <div
