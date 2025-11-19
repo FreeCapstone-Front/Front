@@ -66,6 +66,9 @@ const Navbar = () => {
           <Link to="/community-page" className={btncss}>
             고민 상담소
           </Link>
+          <Link to="/dreambot" className={btncss}>
+            꿈BOT
+          </Link>
         </div>
 
         {!isAuthenticated && (

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { bgBlack } from "./IntroductionPage";
 import { fetchPost } from "../apis/postApi"; // 실제 fetchPost 함수 import
 import type { PostRecordResponse } from "../types/post";
-
+import { hoverCssAnalysis } from "./AnalysisPage";
+import { Pencil } from "lucide-react";
+import icon from "../assets/icons/mystical.png";
 const categories = [
   "전체",
   "수면의질",
@@ -69,23 +71,25 @@ export const CommunityPage = () => {
     <div className={`${bgBlack} min-h-screen px-8 py-10`}>
       <div className="max-w-5xl mx-auto">
         <div className="flex justify-between items-center mb-2">
-          <h1 className="text-xl font-bold text-white mb-2">
+          <div className="text-3xl font-bold text-white mb-2 flex items-center gap-x-3">
+            <img src={icon} className="h-12 w-12" />
             고민을 나누고 위로받으세요
-          </h1>
+          </div>
           <Link
             to="/write-page"
-            className="bg-pink-500 hover:bg-pink-600 text-white font-bold px-5 py-2 rounded-full shadow transition"
+            className={`bg-gradient-to-r from-pink-500 to-purple-500 ${hoverCssAnalysis} text-white font-bold px-5 py-2 rounded-full shadow transition w-40 h-13 flex justify-center gap-x-3 items-center`}
           >
+            <Pencil color="white" />
             글쓰기
           </Link>
         </div>
         <div>
-          <p className="text-white/50 text-sm mb-8">
+          <p className="text-white/50 text-lg mb-8">
             익명으로 수면 관련 고민을 공유하고 AI 분석으로 맞춤 조언을 받으세요
           </p>
         </div>
         {/* 카테고리 버튼 */}
-        <div className="flex gap-2 max-w-xl mb-8 flex-wrap">
+        <div className="flex gap-2 w-full mb-8 flex-wrap">
           {categories.map((cat) => (
             <div
               key={cat}
@@ -93,7 +97,7 @@ export const CommunityPage = () => {
                 setActiveCategory(cat);
                 setCurrentPage(1);
               }}
-              className={`px-2 py-0.5 text-xs text-thin rounded-full font-bold cursor-pointer shadow transition
+              className={`px-2 py-0.5 w-30 h-14 flex items-center justify-center  text-medium text-thin rounded-full font-bold cursor-pointer shadow transition
                 ${
                   activeCategory === cat
                     ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-pink-400"
@@ -112,7 +116,7 @@ export const CommunityPage = () => {
               setSortType("recent");
               setCurrentPage(1);
             }}
-            className={`flex items-center gap-2 px-3 py-1 rounded-full font-bold cursor-pointer transition border border-white/10
+            className={`flex items-center gap-2 px-3 py-1 rounded-full font-bold cursor-pointer transition border border-white/10 w-25 h-12 justify-center
               ${
                 sortType === "recent"
                   ? "bg-white/30 text-white"
@@ -127,7 +131,7 @@ export const CommunityPage = () => {
               setSortType("popular");
               setCurrentPage(1);
             }}
-            className={`flex items-center gap-2 px-3 py-1 rounded-full font-bold cursor-pointer transition border border-white/10
+            className={`flex items-center gap-2 px-3 py-1 rounded-full font-bold cursor-pointer transition border border-white/10  w-25 h-12 justify-center
               ${
                 sortType === "popular"
                   ? "bg-white/30 text-white"
