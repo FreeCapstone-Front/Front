@@ -15,7 +15,6 @@ import {
   Sparkle,
   BookOpen,
   Heart,
-  Save,
   Brain,
 } from "lucide-react";
 
@@ -27,7 +26,7 @@ import LoadingModal from "../LoadingModal";
 import { useNavigate } from "react-router-dom";
 
 const saveBtnCss =
-  "mt-6 p-4 rounded-xl w-80 h-17 text-white font-bold text-lg flex items-center justify-center gap-x-4";
+  "mt-6 p-4 rounded-xl  h-17 text-white font-bold text-lg flex items-center justify-center gap-x-4";
 
 const moodOptions = [
   "행복한",
@@ -98,18 +97,6 @@ const RecordCard: React.FC = () => {
   const onCancel = () => {
     reset();
     alert("폼 내용이 초기화되었습니다.");
-  };
-
-  const onAnalyze = () => {
-    const data = getValues();
-
-    if (!data.content) {
-      alert("AI 분석을 받으려면 꿈 내용을 먼저 입력해야 합니다.");
-      return;
-    }
-
-    console.log("AI 분석을 위한 데이터:", data);
-    alert("AI 분석을 시작합니다. (API 호출 로직 필요)");
   };
 
   const cardCss = `w-[60rem] flex flex-col gap-y-6 h-auto rounded-[2rem] border border-[#F6339A]/20 bg-linear-to-b from-[#1A1625] via-[#1E1B4B] to-[#2D1B4E] ${shadowStyle} py-10 px-10`;
@@ -262,27 +249,18 @@ const RecordCard: React.FC = () => {
           <div className="flex items-center justify-center gap-x-6 w-full">
             <button
               type="submit"
-              className={`${saveBtnCss} ${hovercss} border border-white/20 bg-white/10`}
-              disabled={isLoading}
-            >
-              <Save size={25} color="white" strokeWidth={2} />꿈 기록 저장하기
-            </button>
-
-            <button
-              type="button"
-              onClick={onAnalyze}
-              className={`${saveBtnCss} ${hovercss} bg-linear-to-r from-[#F6339A] to-[#C700FF]`}
+              className={`${saveBtnCss} ${hovercss} w-1/3 bg-linear-to-r from-[#F6339A] to-[#C700FF]`}
               disabled={isLoading}
             >
               <Brain size={25} color="white" strokeWidth={2} />
-              AI 분석 받기
+              꿈 기록하고 AI 분석 받기
               <Sparkle size={25} color="white" strokeWidth={2} />
             </button>
 
             <button
               type="button"
               onClick={onCancel}
-              className={`mt-6 p-4 rounded-xl border border-white/20 bg-white/10 w-40 h-17 text-white font-bold ${hovercss}`}
+              className={`mt-6 p-4 rounded-xl border border-white/20 bg-white/10 w-1/3 h-17 text-white font-bold ${hovercss}`}
               disabled={isLoading}
             >
               취소

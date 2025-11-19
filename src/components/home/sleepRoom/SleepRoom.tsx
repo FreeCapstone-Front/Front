@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { DASectionCss } from "../dreamArticle/DreamArticle";
 import { homeCompoBgBlack } from "../weather/WeatherLayout";
 import SleepCard from "./SleepCard";
@@ -19,12 +18,6 @@ export const SleepRoom = () => {
           {/* 폰트 크기/굵기 추가 */}
         </div>
         {/* 우측: 전체보기 */}
-        <Link
-          className="text-[#C27AFF] cursor-pointer hover:text-[#C27AFF]/80 transition duration-150"
-          to={"articleList-page"}
-        >
-          더보기→
-        </Link>
       </div>
       <SleepCard />
     </div>

@@ -10,12 +10,13 @@ import { SurveyResultPage } from "../pages/SurveyResultPage";
 import { SurveyPage } from "../pages/SurveyPage";
 import { IntroductionPage } from "../pages/IntroductionPage";
 import ArticleListPage from "../pages/ArticleListPage";
-import { SleepRoom } from "../pages/SleepRoom";
+
 import { Article1Page } from "../pages/Article1Page";
 import { AuthLayout } from "../layout/AuthLayout";
 import SignupPage from "../pages/SignupPage";
 import DreamDetailPage from "../pages/DreamDetailPage";
 import DreamBotPage from "../pages/DreamBotPage";
+import SleepRoom from "../pages/SleepRoom";
 
 export const router = createBrowserRouter([
   {
