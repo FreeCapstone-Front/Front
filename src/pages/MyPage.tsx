@@ -1,5 +1,4 @@
 import { Mail, Phone, MapPin, User, Edit } from "lucide-react"
-import { Link } from "react-router-dom";
 import pinkperson from "../assets/icons/pinkperson.png"
 import { bgBlack } from "./IntroductionPage";
 
