@@ -94,7 +94,7 @@ export const CalendarPage = () => {
     };
     const handleClick = () => {
       // 원하는 경로로 이동, 예: /dream/2025-11-15
-      navigate(`/dream/${dateStr}`);
+      navigate(`/dream/${record?.DreamId}`);
     };
     // 데이터 없으면 빈 div로 크기 유지
     // 콘텐츠 영역만 flex로 가운데 정렬
@@ -112,7 +112,7 @@ export const CalendarPage = () => {
               alt={record.mood}
               className="w-10 h-10 mb-1"
             />
-            <div className="text-[13px] text-gray-400">꿈 타이틀 추가 예정</div>
+            <div className="text-[13px] text-gray-400">{record.title}</div>
           </>
         ) : (
           <div className="h-14 w-full" />
