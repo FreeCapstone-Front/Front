@@ -19,8 +19,7 @@ export const Weatherlayout = () => {
     // 예외/에러 핸들링도 추가 가능
   }, []);
   return (
-    <div className="className={`${homeCompoBgBlack} ${shadowStyle} w-[1150px] h-[550px] flex items-center justify-center gap-10 gap-x-10`}
-">
+    <div>
        {weatherData && <WeatherCard data={weatherData} />}
        {/* {weatherData2 && <WeatherTips data2={weatherData2} />} */}
        
