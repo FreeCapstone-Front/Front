@@ -1,7 +1,13 @@
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import star from "../assets/icons/star.png";
 import { pages } from "../data/survey";
 import { useNavigate } from "react-router-dom";
+import improvement from "../assets/icons/improvement.png";
+import book1 from "../assets/icons/book1.png";
+import clock from "../assets/icons/clock.png";
+import up1 from "../assets/icons/up1.png";
+import moon2 from "../assets/icons/moon2.png";
 
 export const SurveyResultPage = () => {
   const bgBlack =
@@ -28,6 +34,16 @@ export const SurveyResultPage = () => {
   let message = "";
   let badgeColor = "";
   let badgeText = "";
+  let improvements = [];
+  // let title1 = "";
+  // let title2 = "";
+  // let title3 = "";
+  // let title4 = "";
+  // let improvement1 = "";
+  // let improvement2 = "";
+  // let improvement3 = "";
+  // let improvement4 = "";
+
   let badgeBorderColor = "border-green-500";
 
   if (totalScore >= 18) {
@@ -37,18 +53,84 @@ export const SurveyResultPage = () => {
       "현재 수면 습관을 잘 유지하고 계시네요. 꾸준히 좋은 수면 패턴을 이어가세요.";
     badgeColor = "bg-green-500";
     badgeText = "우수";
+    improvements = [
+      {
+        title: "아주 좋은 상태예요!",
+        desc: "현재의 수면 습관을 지속적으로 유지하세요.",
+        icon: clock,
+      },
+      {
+        title: "긍정적 변화 반영!",
+        desc: "최근 실천한 변화 중 효과가 있었던 것을 계속하세요.",
+        icon: book1,
+      },
+      {
+        title: "작은 변화 감사하기",
+        desc: "적극적으로 변화를 실천한 것에 대해 스스로를 칭찬하세요.",
+        icon: up1,
+      },
+      {
+        title: "새로운 도전!",
+        desc: "수면 루틴을 소폭 다양화해서 더 건강한 습관을 시도해보세요.",
+        icon: moon2,
+      },
+    ];
   } else if (totalScore >= 13) {
     badgeBorderColor = "border-yellow-500";
     status = "보통 수면 상태입니다!";
     message = "수면 습관이 나쁘지 않지만, 더 개선할 수 있습니다.";
     badgeColor = "bg-yellow-500";
     badgeText = "보통";
+    improvements = [
+      {
+        title: "환경 개선 실천",
+        desc: "침실을 어둡고 조용하게 유지하고 온도도 조정하세요.",
+        icon: clock,
+      },
+      {
+        title: "스트레칭/명상 루틴",
+        desc: "취침 전 스트레칭이나 명상 루틴을 만들어 보세요.",
+        icon: book1,
+      },
+      {
+        title: "저녁 식사 조절",
+        desc: "너무 늦은 저녁식사는 피하고 가벼운 식사를 하세요.",
+        icon: up1,
+      },
+      {
+        title: "습관화 하기",
+        desc: "좋은 행동들을 항시 습관화 하세요.",
+        icon: moon2,
+      },
+    ];
   } else {
     badgeBorderColor = "border-red-500";
     status = "수면 개선이 필요합니다!";
     message = "수면 습관을 점검하고 개선 방법을 시도해보세요.";
     badgeColor = "bg-red-500";
     badgeText = "필요";
+    improvements = [
+      {
+        title: "수면 습관 점검",
+        desc: "수면 시간을 일정하게 맞추려고 노력해보세요.",
+        icon: clock,
+      },
+      {
+        title: "전자기기 사용 제한",
+        desc: "자기 전 2시간은 휴대폰, TV의 사용을 줄이세요.",
+        icon: book1,
+      },
+      {
+        title: "카페인 섭취 관리",
+        desc: "저녁 이후에는 카페인 음료를 마시지 않는 게 좋아요.",
+        icon: up1,
+      },
+      {
+        title: "수면 기록 시작",
+        desc: "오늘 밤부터 저희 꿈 일지 서비스를 이용해보세요.",
+        icon: moon2,
+      },
+    ];
   }
 
   const handleRetry = () => {
@@ -58,6 +140,10 @@ export const SurveyResultPage = () => {
   const handleGoHome = () => {
     navigate("/home-page");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div
@@ -130,6 +216,36 @@ export const SurveyResultPage = () => {
               </div>
             );
           })}
+          <div className="rounded-3xl bg-gradient-to-br from-purple-800/10 to-indigo-900 p-8 mb-8 shadow-md w-full max-w-3xl flex flex-col items-center">
+            <div className="flex flex-raw items-center justify-center">
+              <img className="mt-5" src={improvement} />
+              <label className="text-4xl font-semibold text-white">
+                맞춤개선제안
+              </label>
+            </div>
+            {/* 개선사항 카드 그리드 */}
+            <div className="grid grid-cols-2 gap-6 w-full mt-8">
+              {improvements.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-4 p-5 bg-[#24224C]/80 rounded-xl shadow-md"
+                >
+                  <img
+                    src={item.icon}
+                    alt="icon"
+                    className="w-20 h-20 object-contain"
+                  />
+
+                  <div>
+                    <div className="text-white text-base font-bold mb-1">
+                      {item.title}
+                    </div>
+                    <div className="text-gray-300 text-sm">{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="flex gap-6 items-center justify-center mt-8">
             {/* 다시 진단하기 버튼 (outlined) */}
             <button

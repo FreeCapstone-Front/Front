@@ -15,7 +15,7 @@ const Community = () => {
         </div>
         <Link
           className={`h-12 w-25 border border-white/30 bg-white/30 rounded-2xl flex items-center justify-center text-white ${hovercss}`}
-          to={""}
+          to={"community-page"}
         >
           더보기 →
         </Link>
