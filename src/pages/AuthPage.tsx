@@ -6,12 +6,13 @@ import { GoogleIcon } from "../assets/icons/GoogleIcon";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { signin } from "../apis/authApi";
-import { useAuthStore } from "../hooks/useAuthStore";
 
-// 이메일 대신 문자열로 검증 변경, 이름도 id로 변경
+import { useAuthStore } from "../hooks/useAuthStore";
+import type { AuthResponse } from "../types/auth";
+import { signin } from "../apis/authApi";
+
 const LoginSchema = z.object({
-  id: z.string().min(1, { message: "아이디를 입력하세요." }), // 빈 문자열 방지 최소 길이 1
+  id: z.string().min(1, { message: "아이디를 입력하세요." }),
   password: z
     .string()
     .min(6, { message: "비밀번호는 최소 6자 이상이어야 합니다." }),
@@ -21,30 +22,27 @@ type LoginFormValues = z.infer<typeof LoginSchema>;
 
 export const AuthPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const setToken = useAuthStore((state) => state.setToken);
-  const navigate = useNavigate(); // navigate 선언
+  const setAuth = useAuthStore((state) => state.setAuth);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(LoginSchema),
-    defaultValues: {
-      id: "",
-      password: "",
-    },
+    defaultValues: { id: "", password: "" },
     mode: "onBlur",
   });
 
   const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
     try {
-      const response = await signin({
-        username: data.id, // id를 username에 매핑
+      const response: AuthResponse = await signin({
+        username: data.id,
         password: data.password,
       });
-      setToken(response.token);
+      setAuth(response); // 토큰 + 유저 정보 전체 저장
       alert("로그인 성공!");
-      console.log(response.token);
       navigate("/");
     } catch (error) {
       alert(
@@ -56,15 +54,14 @@ export const AuthPage = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-linear-to-br from-[#2A2535] via-[#2E2B5B] to-[#3D2B5E] flex items-center justify-center p-4">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#9810fa]/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#f6339a]/10 rounded-full blur-3xl" />
+      {/* 기존 UI 그대로 유지 */}
 
       <div className="w-full max-w-md relative z-10">
         <div className="flex flex-col items-center mb-8">
           <img
             src={character1}
-            className="h-30 w-30 rounded-full"
             alt="profile character"
+            className="h-30 w-30 rounded-full"
           />
           <h1 className="text-2xl font-semibold text-white mb-2">
             어서오세요 환영합니다

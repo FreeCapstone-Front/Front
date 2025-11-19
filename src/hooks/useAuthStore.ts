@@ -1,37 +1,57 @@
 import { create } from "zustand";
+import type { AuthState } from "../types/auth";
 
-// 1. 스토어 상태 타입 정의
-interface AuthState {
-  token: string | null;
-  isAuthenticated: boolean; // 로그인 여부
-  setToken: (token: string | null) => void;
-  logout: () => void;
-}
-
-// 2. 초기 상태 결정 (로컬 스토리지에서 토큰을 읽어 초기화)
 const initialToken = localStorage.getItem("authToken");
+const initialUsername = localStorage.getItem("username");
+const initialName = localStorage.getItem("name");
+const initialNickname = localStorage.getItem("nickname");
 
 export const useAuthStore = create<AuthState>((set) => ({
-  // 초기 상태
   token: initialToken,
-  isAuthenticated: !!initialToken, // 토큰이 있으면 true
+  username: initialUsername,
+  name: initialName,
+  nickname: initialNickname,
+  isAuthenticated: !!initialToken,
 
-  // 3. 토큰 설정 액션
-  setToken: (token) => {
-    if (token) {
-      localStorage.setItem("authToken", token);
-      set({ token, isAuthenticated: true });
+  setAuth: (auth) => {
+    if (auth && auth.token) {
+      localStorage.setItem("authToken", auth.token);
+      localStorage.setItem("username", auth.username);
+      localStorage.setItem("name", auth.name);
+      localStorage.setItem("nickname", auth.nickname);
+      set({
+        token: auth.token,
+        username: auth.username,
+        name: auth.name,
+        nickname: auth.nickname,
+        isAuthenticated: true,
+      });
     } else {
-      // 토큰을 null로 설정 시 로그아웃 처리
-      set({ token: null, isAuthenticated: false });
       localStorage.removeItem("authToken");
+      localStorage.removeItem("username");
+      localStorage.removeItem("name");
+      localStorage.removeItem("nickname");
+      set({
+        token: null,
+        username: null,
+        name: null,
+        nickname: null,
+        isAuthenticated: false,
+      });
     }
   },
 
-  // 4. 로그아웃 액션
   logout: () => {
-    // setToken(null) 호출과 동일한 효과
-    set({ token: null, isAuthenticated: false });
     localStorage.removeItem("authToken");
+    localStorage.removeItem("username");
+    localStorage.removeItem("name");
+    localStorage.removeItem("nickname");
+    set({
+      token: null,
+      username: null,
+      name: null,
+      nickname: null,
+      isAuthenticated: false,
+    });
   },
 }));
