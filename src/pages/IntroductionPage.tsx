@@ -1,5 +1,5 @@
 import Icon from "../assets/icons/Icon.png";
-import star from "../assets/icons/star.png";
+// import star from "../assets/icons/star.png";
 import BinStar from "../assets/icons/BinStar.png";
 import book1 from "../assets/icons/book1.png";
 import check from "../assets/icons/check.png";
@@ -15,6 +15,7 @@ import pbrain from "../assets/icons/pbrain.png";
 import cccircle from "../assets/icons/cccircle.png";
 import pup from "../assets/icons/pup.png";
 import logoDark from "../assets/logo/logoDark.png";
+import pinkicon from "../assets/icons/pinkicon.png";
 import { useNavigate } from "react-router-dom";
 
 export const bgCss = "bg-[#22183E] rounded-[50px] shadow-[0px_20px_60px_-15px_rgba(236,72,153,0.4)] p-6 flex flex-col items-start";
@@ -49,9 +50,7 @@ export const IntroductionPage = () => {
                    left-1/20 top-[500px] transform -translate-y-1/2 
                    border-none
                    **-translate-x-[calc(100%+10px)]** /* 20px
-                    bg-[#AD46FF33] backdrop-blur-xl
-                    bg-gradient-to-br from-[#F6339A]/10 to-[#601A40]/10
-                    opacity-30 backdrop-blur-xl [box-shadow:0_0_300px_200px_rgba(246,51,154,0.4)]"
+                   bg-[#9810fa]/20 blur-3xl "
         >
         </div>
         <div
@@ -60,15 +59,13 @@ export const IntroductionPage = () => {
                    right-1/20 top-[460px] transform -translate-y-1/2 
                    
                    **-translate-x-[calc(100%+10px)]** /* 20px
-                    bg-[#F6339A33] backdrop-blur-xl
-                    bg-gradient-to-br from-[#AD46FF]/10 to-[#2E0F5B]/10
-                    opacity-30 backdrop-blur-xl [box-shadow:0_0_300px_200px_rgba(246,51,154,0.4)]"
+                   bg-[#f6339a]/10 blur-3xl "
         >
         </div>
         <div className="z-10 -translate-y-20 relative text-white text-center">
         <div className={`${bgCircle} px-6 py-3`}
         >
-            <img src = {star} ></img>
+            <img src = {pinkicon} ></img>
             꿈꿈 - 당신의 수면 파트너
           
         </div>
@@ -89,7 +86,7 @@ export const IntroductionPage = () => {
         </p>
         <div className="flex justify-center gap-4">
           <button className=" bg-gradient-to-br from-[#F6339A]/80 to-[#9810FA]/80 text-white px-6 py-3 rounded-full hover:bg-[#9810FA]/100 transition flex items-center gap-1">
-            <img src = {star} ></img>무료로 시작하기 <img src = {Icon} ></img>
+            <img src = {pinkicon} ></img>무료로 시작하기 <img src = {Icon} ></img>
           </button>
           <button onClick={() => navigate('/')}
           className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-[#2a2535] transition">
@@ -112,7 +109,7 @@ export const IntroductionPage = () => {
         </div>
       </div>
       </div>
-      <div className ={`${textset} mt-25`}>
+      <div className ={`${textset}`}>
         <div className={`${bgCircle} px-6 py-2`}>
             <img src = {BinStar} ></img>
             핵심 기능  
