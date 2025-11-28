@@ -1,5 +1,6 @@
 import type {
   DreamCalendarItem,
+  DreamComics,
   DreamDetail,
   DreamFormData,
   DreamRecordResponse,
@@ -53,6 +54,20 @@ export const fetchDreamByDay = async (
     return response.data;
   } catch (error) {
     console.error("꿈 캘린더 데이터 불러오기 실패", error);
+    throw error;
+  }
+};
+
+export const fetchDreamComics = async (
+  DreamId: string
+): Promise<DreamComics> => {
+  try {
+    const response = await axiosInstance.get<DreamComics>(
+      `/api/dreams/${DreamId}/comic`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("꿈 코믹스 데이터 불러오기 실패", error);
     throw error;
   }
 };

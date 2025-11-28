@@ -12,12 +12,14 @@ import { IntroductionPage } from "../pages/IntroductionPage";
 import ArticleListPage from "../pages/ArticleListPage";
 
 import { Article1Page } from "../pages/Article1Page";
-import {MyPage} from "../pages/MyPage";
+import { MyPage } from "../pages/MyPage";
 import { AuthLayout } from "../layout/AuthLayout";
 import SignupPage from "../pages/SignupPage";
 import DreamDetailPage from "../pages/DreamDetailPage";
 import DreamBotPage from "../pages/DreamBotPage";
 import SleepRoom from "../pages/SleepRoom";
+import { WritePost } from "../pages/WritePost";
+import { CommunityPageDetail } from "../pages/CommunityPageDetail";
 
 export const router = createBrowserRouter([
   {
@@ -65,7 +67,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-page",
-        element: <MyPage />,},
+        element: <MyPage />,
+      },
       {
         path: "dream/:dreamId", // [translate:꿈 상세 페이지를 위한 중첩 라우팅 경로 추가]
         element: <DreamDetailPage />,
@@ -73,6 +76,14 @@ export const router = createBrowserRouter([
       {
         path: "dreamBot", // [translate:꿈 상세 페이지를 위한 중첩 라우팅 경로 추가]
         element: <DreamBotPage />,
+      },
+      {
+        path: "write-page",
+        element: <WritePost />,
+      },
+      {
+        path: "/communitydetail-page/:id",
+        element: <CommunityPageDetail />,
       },
 
       // 나중에 "/about" 페이지를 추가하고 싶다면 여기에 추가하면 됨,, 상욱아

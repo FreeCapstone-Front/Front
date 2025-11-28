@@ -16,6 +16,7 @@ import { ChevronLeft } from "lucide-react";
 
 export const CommunityPageDetail = () => {
   const { id } = useParams();
+  console.log(id);
   const [post, setPost] = useState<PostDetailResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
