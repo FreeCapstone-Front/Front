@@ -71,7 +71,7 @@ export const IntroSection = () => {
 
         <Link
           className={`text-white rounded-full border-2 border-white/30 bg-white/10 w-50 h-15 flex items-center justify-center gap-x-2 ${hovercss}`}
-          to={""}
+          to={"/intro"}
         >
           <img src={introBtn3} className="h-6 w-6" />
           <div>더 알아보기</div>

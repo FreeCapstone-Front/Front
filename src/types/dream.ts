@@ -45,3 +45,7 @@ export interface DreamDetail {
   keywords: string[];
   recommendation: string;
 }
+
+export interface DreamComics {
+  imageUrl: string;
+}

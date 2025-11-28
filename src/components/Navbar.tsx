@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { useAuthStore } from "../hooks/useAuthStore";
 
 export const pinkGrhoverCss =
-  " transform transition-all duration-300 ease-in-out " +
+  " transform transition-all duration-500 ease-in-out " +
   "hover:scale-105 hover:shadow-lg hover:shadow-[#F6339A]/40";
 
 export const pinkGrLoginBtn =
-  "bg-gradient-to-r from-[#F6339A] to-[#9810FA] rounded-full text-white font-bold " +
+  "bg-gradient-to-r from-[#F6339A] to-[#9810FA] rounded-2xl text-white font-bold " +
   "flex items-center justify-center gap-2 " +
   pinkGrhoverCss;
 
@@ -84,7 +84,7 @@ const Navbar = () => {
         {isAuthenticated && (
           <div className="h-full flex items-center justify-center gap-x-4">
             {nickname}님 반갑습니다.
-            <Link to="/mypage" className={`${btncss2} gap-x-2`}>
+            <Link to="/my-page" className={`${btncss2} gap-x-2`}>
               <img src={mypageIcon} alt="mypage icon" className="w-6 h-6" />
               마이페이지
             </Link>
